@@ -1,0 +1,27 @@
+# Virtual Host for E-Commerce Site
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/onlineshop"
+    ServerName onlineshop.local
+    ServerAlias www.onlineshop.local
+    
+    <Directory "C:/xampp/htdocs/onlineshop">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    
+    ErrorLog "logs/onlineshop-error.log"
+    CustomLog "logs/onlineshop-access.log" common
+</VirtualHost>
+
+# Alternative: Subdirectory approach
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+    
+    <Directory "C:/xampp/htdocs/onlineshop">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
